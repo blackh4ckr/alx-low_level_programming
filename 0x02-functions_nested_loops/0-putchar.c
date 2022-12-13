@@ -11,13 +11,11 @@
 
 int main(void)
 {
-char s[9] = "_putchar";
+char s[9] = "_putchar\n";
 
 int ch;
 for (ch = 0; ch < 9; ch++)
 	_putchar(s[ch]);
-
-_putchar('/n');
 return (0);
 
 }
