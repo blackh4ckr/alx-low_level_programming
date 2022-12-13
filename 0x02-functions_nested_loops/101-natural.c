@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "main.h"
-/*
+/**
  * main - prints
  * Decription: prints the sum of all the multiples
  * Return: 0

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "main.h"
-/*
+/**
  * main - Entry point
  * Description: prints the first 50 fibonacci numbers
  * Return: 0

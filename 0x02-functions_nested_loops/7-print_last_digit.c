@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 
-/*
+/**
  * print_last_digit - prints
  * Description: prints the last digit of a number
  * Return: 0

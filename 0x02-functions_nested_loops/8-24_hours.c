@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 
-/*
+/**
  * jack_bauer - prints every min of the day
  * Description: function that prints every min
  * Return: 0

@@ -1,11 +1,11 @@
 #include "main.h"
 #include <unistd.h>
-/*
+/**
  * _isalpha - checks alphabetic character
  * Description: checks for alphabetic character
  * Return: 1 if c is a letter
  * @c:input
-*/
+ */
 
 int _isalpha(int c)
 

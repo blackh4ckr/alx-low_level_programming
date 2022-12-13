@@ -1,9 +1,9 @@
 #include"main.h"
-/*
+/**
  * numLength - returns the length of string
  * @num: operand number
  * Return: number of digits
-*/
+ */
 
 int numLength(int num)
 
@@ -20,15 +20,14 @@ return (length);
 }
 
 
-/*
+/**
  * main - Entry point
  * Description: prints the first 98 Fibonacci numbers
  *	starting with 1 and 2 followed by a new line
  *	Solution was copied from Nobert Patrick
  *	Wise, github handle: Trikcod
  * Return: Always 0 (Success)
-
-*/
+ */
 
 int main(void)
 {
