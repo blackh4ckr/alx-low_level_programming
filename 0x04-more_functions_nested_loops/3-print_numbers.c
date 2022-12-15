@@ -13,6 +13,5 @@ for (i = 0; i < 10; i++)
 _putchar(i, '\n');
 }
 
-return (0);
 }
 
