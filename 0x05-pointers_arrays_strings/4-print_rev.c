@@ -9,7 +9,7 @@
 
 void print_rev(char *s)
 {
-while (*s[-1] != '\0')
+while (s = &s[-1]; s != '\0')
 {
 _putchar(*s++);
 }
