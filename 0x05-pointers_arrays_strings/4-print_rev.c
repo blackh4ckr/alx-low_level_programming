@@ -14,6 +14,6 @@ for (i = 0; s[-1] != '\0'; i++)
 {
 _putchar(*s++);
 }
-putchar('\n');
+_putchar('\n');
 
 }
