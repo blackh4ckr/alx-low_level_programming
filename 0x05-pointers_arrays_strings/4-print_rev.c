@@ -16,7 +16,7 @@ len++;
 }
 
 len--;
-for (len >= 0; len--)
+for (; len >= 0; len--)
 {
 _putchar(s[len]);
 }
