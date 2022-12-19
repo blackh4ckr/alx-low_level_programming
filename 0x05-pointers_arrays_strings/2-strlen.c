@@ -17,5 +17,5 @@ while (*s != 0)
 *s = *s / 10;
 counter++;
 }
-_putchar(counter);
+return (counter);
 }
