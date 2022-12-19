@@ -9,8 +9,8 @@
 
 void puts2(char *str)
 {
-int i;
-while (str[i])
+int i = 0;
+while (str[i] != '\0')
 {
 if (i % 2 == 0)
 {
