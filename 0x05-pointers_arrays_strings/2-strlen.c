@@ -16,6 +16,7 @@ while (*s != 0)
 {
 *s = *s / 10;
 counter++;
+s++;
 }
 return (counter);
 }
