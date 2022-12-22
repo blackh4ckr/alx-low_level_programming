@@ -11,22 +11,16 @@
 
 void reverse_array(int *a, int n)
 {
-int s, u, v;
-s = 0;
-u = 0;
-v[30];
+int tmp, x;
 
-n--;
-while (s <= n)
+for (x = n - 1; x > n / 2; x--)
 {
-v[n - s] = a[s];
-s++;
+tmp = a[n - 1 - x];
+a[n - 1 - i] = a[i];
+a[i] = tmp;
+
 }
-while (u <= n)
-{
-a[u] = v[u];
-u++;
-}
+
 
 
 }
