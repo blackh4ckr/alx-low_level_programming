@@ -1,39 +1,31 @@
 #include "main.h"
 
 /**
-* cap_string - cehck code
-* Description: function that capitalizes all words of a string.
-* @str: pointer input
-* Return: str
-*/
-
-char *cap_string(char *str)
+ * cap_string - capitalizes all words in a string
+ * @s: string
+ * Return: address of s
+ */
+char *cap_string(char *s)
 {
-int i, j;
-char spe[13] = {' ', '\t', '\n', ',', ';', '.',
-'!', '?', '"', '(', ')', '{', '}'};
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-for (i = 0; str[i] != '\0'; i++)
-{
-if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
-str[i] -= 32;
-
-for (j = 0; j < 13; j++)
-{
-if (str[i] == spe[j])
-{
-if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
-{
-str[i + 1] -= 32;
-}
-}
-
-}
-
-}
-
-}
-
-return (str);
-
+	while (*(s + i))
+	{
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
+		{
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
+		}
+		i++;
+	}
+	return (s);
 }
