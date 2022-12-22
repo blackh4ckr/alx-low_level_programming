@@ -3,35 +3,37 @@
 /**
 * cap_string - cehck code
 * Description: function that capitalizes all words of a string.
-* @s: pointer input
-* Return: s
-*
-*
+* @str: pointer input
+* Return: str
 */
 
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
+int i, j;
+char spe[13] = {' ', '\t', '\n', ',', ';', '.',
+'!', '?', '"', '(', ')', '{', '}'};
 
-int x = 0;
-while (s[x] != '\0')
+for (i = 0; str[i] != '\0'; i++)
 {
-if (s[x] >= 97 && s[x] <= 122)
-{
-if (x == 0)
-{
-s[x] -= 32;
-}
-if (s[i - 1] == 32 || s[i - 1] == 9 || s[i - 1] == 10 ||
-s[i - 1] == 44 || s[i - 1] == 59 || s[i - 1] == 46 ||
-s[i - 1] == 33 || s[i - 1] == 63 || s[i - 1] == 34 ||
-s[i - 1] == 40 || s[i - 1] == 41 || s[i - 1] == 123 ||
-s[i - 1] == 124)
+if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+str[i] -= 32;
 
+for (j = 0; j < 13; j++)
 {
-s[i] -= 32;
+if (str[i] == spe[j])
+{
+if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+{
+str[i + 1] -= 32;
 }
 }
-x++;
+
 }
-return (s);
+
+}
+
+}
+
+return (str);
+
 }
