@@ -14,16 +14,20 @@
 
 char *_strncat(char *dest, char *src, int n)
 {
-int x, y;
+int x, y, z;
 x = 0;
+y = 0;
+z = 0;
 
-while (dest[x])
+for (; dest[z];)
 {
-x++;
+z++;
 }
-for (y = 0; y < n && src[y] != '\0'; y++)
+while (y < n && src[y])
 {
-dest[x + y] = '\0';
+dest[z + x] = src[y];
+x++;
+y++;
 
 
 }
