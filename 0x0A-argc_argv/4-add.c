@@ -2,27 +2,37 @@
 #include <stdlib.h>
 
 /**
- * main - the main function
- * @argc: the number of compiled arguments
- * @argv: array of compiled arguments
- * Return: 0.
+ * main - adds positive numbers.
+ * @argc: argument count
+ * @argv: arguments
+ *
+ * Return: 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int i;
-	int add;
+	int i, n, sum = 0;
+	char *flag;
 
-	if (argc <= 1)
+	if (argc < 2)
 	{
-		printf("%d\n", 0);
+		printf("0\n");
+		return (0);
 	}
-	else
+
+	for (i = 1; argv[i]; i++)
 	{
-		for (i = 1; i < argc; i++)
+		n = strtol(argv[i], &flag, 10);
+		if (*flag)
 		{
-			add += atoi(argv[i]);
+			printf("Error\n");
+			return (1);
 		}
-		printf("%d\n", add);
+		else
+		{
+			sum += n;
+		}
 	}
+	printf("%d\n", sum);
+
 	return (0);
 }
