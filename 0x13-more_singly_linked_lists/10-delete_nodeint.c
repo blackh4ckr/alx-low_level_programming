@@ -55,13 +55,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 
 	node_to_delete = temp->next;
-
 	temp->next = node_to_delete->next;
-
 	free(node_to_delete);
-
 	return (1);
-
 }
-
-
