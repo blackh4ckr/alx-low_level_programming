@@ -14,67 +14,150 @@
  * Return: the number of nodes in the list
  *
  */
+size_t looped_listint_len(const listint_t *head)
+
+{
+
+	const listint_t *tortoise, *hare;
+
+	size_t nodes = 1;
+
+
+
+	if (head == NULL || head->next == NULL)
+
+		return (0);
+
+
+
+	tortoise = head->next;
+
+	hare = (head->next)->next;
+
+
+
+	while (hare)
+
+	{
+
+		if (tortoise == hare)
+
+		{
+
+			tortoise = head;
+
+			while (tortoise != hare)
+
+			{
+
+				nodes++;
+
+				tortoise = tortoise->next;
+
+				hare = hare->next;
+
+			}
+
+
+
+			tortoise = tortoise->next;
+
+			while (tortoise != hare)
+
+			{
+
+				nodes++;
+
+				tortoise = tortoise->next;
+
+			}
+
+
+
+			return (nodes);
+
+		}
+
+
+
+		tortoise = tortoise->next;
+
+		hare = (hare->next)->next;
+
+	}
+
+
+
+	return (0);
+
+}
+
+
+
+/**
+ *
+ *  * print_listint_safe - Prints a listint_t list safely.
+ *
+ *   * @head: A pointer to the head of the listint_t list.
+ *
+ *    *
+ *
+ *     * Return: The number of nodes in the list.
+ *
+ *      */
 
 size_t print_listint_safe(const listint_t *head)
 
 {
 
-	const listint_t *slow, *fast;
-
-	size_t count = 0;
+	size_t nodes, index = 0;
 
 
 
-	if (head == NULL)
-
-		exit(98);
+	nodes = looped_listint_len(head);
 
 
 
-	slow = head;
-
-	fast = head;
-
-	while (fast && fast->next)
+	if (nodes == 0)
 
 	{
 
-		count++;
-
-		printf("[%p] %d\n", (void *)slow, slow->n);
-
-		slow = slow->next;
-
-		fast = fast->next->next;
-
-		if (slow == fast)
+		for (; head != NULL; nodes++)
 
 		{
 
-			printf("-> [%p] %d\n", (void *)slow, slow->n);
+			printf("[%p] %d\n", (void *)head, head->n);
 
-			break;
+			head = head->next;
 
 		}
 
 	}
 
-	while (slow)
+
+
+	else
 
 	{
 
-		count++;
+		for (index = 0; index < nodes; index++)
 
-		printf("[%p] %d\n", (void *)slow, slow->n);
+		{
 
-		slow = slow->next;
+			printf("[%p] %d\n", (void *)head, head->n);
+
+			head = head->next;
+
+		}
+
+
+
+		printf("-> [%p] %d\n", (void *)head, head->n);
 
 	}
 
 
 
-	return (count);
+	return (nodes);
 
 }
-
-
