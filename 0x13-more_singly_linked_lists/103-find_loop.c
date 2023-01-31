@@ -7,49 +7,45 @@
  * find_listint_loop - check description
  * Description: function that finds the loop in a linked list
  * @head: pointer
- * Returns: address of node where loop starts or NULL if there is no loop
+ * Return: address of node where loop starts or NULL if there is no loop
  *
  */
 listint_t *find_listint_loop(listint_t *head)
 
 {
 
-	listint_t *slow = head, *fast = head;
+	listint_t *tortoise, *hare;
 
-	while (slow && fast && fast->next)
+
+
+	tortoise = hare = head;
+
+	while (tortoise && hare && hare->next)
 
 	{
 
-		slow = slow->next;
+		tortoise = tortoise->next;
 
-		fast = fast->next->next;
+		hare = hare->next->next;
 
-		if (slow == fast)
+		if (tortoise == hare)
+
+		{
+
+			tortoise = head;
 
 			break;
 
+		}
+
 	}
 
-	if (!slow || !fast || !fast->next)
-
+	if (!tortoise || !hare || !hare->next)
 		return (NULL);
-
-
-
-	slow = head;
-
-	while (slow != fast)
-
+	while (tortoise != hare)
 	{
-
-		slow = slow->next;
-
-		fast = fast->next;
-
+		tortoise = tortoise->next;
+		hare = hare->next;
 	}
-
-	return (slow);
-
+	return (hare);
 }
-
-
