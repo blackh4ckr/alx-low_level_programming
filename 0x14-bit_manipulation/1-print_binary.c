@@ -7,15 +7,44 @@
  * Description: function that prints the binary representation of a number.
  * @n: input
  */
+
 void print_binary(unsigned long int n)
+
 {
 
-	if (n > 1)
+	int i, count = 0;
 
-		print_binary(n >> 1);
+	unsigned long int current;
 
-	printf("%lu", n & 1);
+
+
+	for (i = 63; i >= 0; i--)
+
+	{
+
+		current = n >> i;
+
+
+
+		if (current & 1)
+
+		{
+
+			_putchar('1');
+
+			count++;
+
+		}
+
+		else if (count)
+
+			_putchar('0');
+
+	}
+
+	if (!count)
+
+		_putchar('0');
 
 }
-
 
