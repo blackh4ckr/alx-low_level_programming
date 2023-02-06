@@ -16,34 +16,46 @@
  * Return: 1 on success, -1 on failure
  *
  */
-
 int create_file(const char *filename, char *text_content)
+
 {
-	int fd, flag;
 
-	ssize_t n_written;
+	int fd, w, len = 0;
 
-	if (!filename)
+	if (filename == NULL)
+
 		return (-1);
 
-	flag = O_CREAT | O_TRUNC | O_WRONLY;
-	fd = open(filename, flag, S_IRUSR | S_IWUSR);
-	if (fd == -1)
-		return (-1);
 
-	if (!text_content)
+
+	if (text_content != NULL)
+
 	{
-		close(fd);
-		return (1);
+
+		for (len = 0; text_content[len];)
+
+			len++;
+
 	}
-	n_written = write(fd, text_content, _strlen(text_content));
-	if (n_written == -1 || n_written != _strlen(text_content))
-	{
-		close(fd);
+
+
+
+	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+
+	w = write(fd, text_content, len);
+
+
+
+	if (fd == -1 || w == -1)
+
 		return (-1);
-	}
+
+
+
 	close(fd);
+
+
+
 	return (1);
+
 }
-
-
